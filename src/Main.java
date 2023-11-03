@@ -25,7 +25,7 @@ public class Main {
         scanner.close();
 
         switch(operatore){
-           /*case '+':
+           case '+':
                 funzioneAddizione();
                 break;
             case '-':
@@ -34,7 +34,7 @@ public class Main {
             case '*':
                 funzioneMoltiplicazione(num1,num2);
                 break;
-            /*case '/':
+            case '/':
                 funzioneDivisione();
                 break;
             case '^':
@@ -45,22 +45,25 @@ public class Main {
                 break;
             default:
                 System.out.println("Not Operator!");
+
         }
     }
-    /*public static double riconoscimentoOperazione(){
-        int[] result = new int [2];
-        char[] operator = new char[1];
-        if (risultato % 2 == 0){
-            funzionePariDispari();
+   public static void funzionePotenza(double num, double esp){
+        double result = 1;
+        if(esp == 0){
+            System.out.println(result);
+        }else {
+            for (int i = 1; i <= esp; i++) {
+                result *= num;
+                System.out.println(result);
+            }
         }
-    }*/
-
     public static void funzioneMoltiplicazione (double num1, double num2) {
 
         double result = num1 * num2;
         System.out.println(result);
-
     }
+          
     public static void funzionePariDispari (double num1){
 
         boolean isPari = false;
