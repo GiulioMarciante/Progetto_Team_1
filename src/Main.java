@@ -27,10 +27,10 @@ public class Main {
         switch(operatore){
            /*case '+':
                 funzioneAddizione();
-                break;*/
-            case '-':
-                sottrazione(num1, num2);
                 break;
+            case '-':
+                funzioneSottrazione();
+                break;*/
             case '*':
                 funzioneMoltiplicazione(num1,num2);
                 break;
@@ -73,9 +73,14 @@ public class Main {
     }
 
 
-    public static void sottrazione(double num1, double num2) {
+    public static void funzioneSottrazione(double num1, double num2) {
         double result;
         result = num1 - num2;
+        System.out.println(result);
+    }
+    public static void funzioneAddizione (double num1, double num2) {
+
+        double result = num1 + num2;
         System.out.println(result);
     }
 }
