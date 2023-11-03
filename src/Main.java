@@ -72,6 +72,7 @@ public class Main {
         }
     }
 
+
     public static void sottrazione(double num1, double num2) {
         double result;
         result = num1 - num2;
