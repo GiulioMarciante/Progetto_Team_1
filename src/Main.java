@@ -5,15 +5,20 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Inserisci il primo numero:");
+
         double num1 = scanner.nextDouble();
 
         System.out.println("Inserisci l'operatore ( + , - , * , / , ^, p):");
+
         char operatore = scanner.next().charAt(0);
 
-        if (operatore != '*' && operatore != 'p'){
-            System.out.println("Inserisci l'operatore corretto ( + , - , * , / , ^, p):");
-            operatore = scanner.next().charAt(0);
+        while(true){
+            if (operatore != '*' && operatore != 'p'){
+                System.out.println("Inserisci l'operatore corretto ( + , - , * , / , ^, p):");
+                operatore = scanner.next().charAt(0);
+            }else break;
         }
+
 
         double num2 = 0;
 
@@ -66,9 +71,7 @@ public class Main {
           
     public static void funzionePariDispari (double num1){
 
-        boolean isPari = false;
         if (num1 % 2 == 0){
-            isPari = true;
             System.out.println("Numero Pari");
         } else {
             System.out.println("Numero Dispari");
