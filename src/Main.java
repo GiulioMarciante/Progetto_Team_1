@@ -7,6 +7,7 @@ public class Main {
             for (int i = 1; i <= esp; i++) {
                 result *= num;
                 System.out.println(result);
+
             }
         }
     }
