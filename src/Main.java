@@ -1,5 +1,5 @@
 public class Main {
-    public static void power(double num, double esp){
+    public static void funzionePotenza(double num, double esp){
         double result = 1;
         if(esp==0){
             System.out.println(result);
