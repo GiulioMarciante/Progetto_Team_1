@@ -12,81 +12,79 @@ public class Main {
 
         char operatore = scanner.next().charAt(0);
 
-        while(true){
-            if (operatore != '*' && operatore != 'p'){
+        while (true) {
+            if (operatore != '+' && operatore != '-' && operatore != '*' && operatore != '/' && operatore != '^' && operatore != 'p') {
                 System.out.println("Inserisci l'operatore corretto ( + , - , * , / , ^, p):");
                 operatore = scanner.next().charAt(0);
-            }else break;
+            } else break;
         }
-
 
         double num2 = 0;
 
-        if(operatore != 'p'){
+        if (operatore != 'p') {
             System.out.println("Inserisci il secondo numero:");
             num2 = scanner.nextDouble();
         }
 
         scanner.close();
 
-        switch(operatore){
-           case '+':
-                funzioneAddizione();
+        switch (operatore) {
+            case '+':
+                funzioneAddizione(num1,num2);
                 break;
             case '-':
-                funzioneSottrazione();
-                break;*/
+                funzioneSottrazione(num1,num2);
+                break;
             case '*':
-                funzioneMoltiplicazione(num1,num2);
+                funzioneMoltiplicazione(num1, num2);
                 break;
             case '/':
-                funzioneDivisione();
+                funzioneDivisione(num1,num2);
                 break;
             case '^':
-                funzionePotenza();
-                break;*/
+                funzionePotenza(num1,num2);
+                break;
             case 'p':
                 funzionePariDispari(num1);
                 break;
             default:
-                System.out.println("Not Operator!");
-
+            }
         }
-    }
-   public static void funzionePotenza(double num, double esp){
-        double result = 1;
-        if(esp == 0){
+        public static void funzioneAddizione ( double num1, double num2){
+
+            double result = num1 + num2;
             System.out.println(result);
-        }else {
+        }
+        public static void funzioneSottrazione ( double num1, double num2){
+            double result;
+            result = num1 - num2;
+            System.out.println(result);
+        }
+        public static void funzioneMoltiplicazione ( double num1, double num2){
+            double result = num1 * num2;
+            System.out.println(result);
+        }
+        public static void funzioneDivisione(double num1, double num2){
+            double result = num1/num2;
+            int rest = (int) (num1 % num2);
+            System.out.println(result + " con il resto di: " + rest);
+        }
+        public static void funzionePotenza(double num, double esp) {
+        double result = 1;
+            if (esp == 0) {
+            System.out.println(result);
+            } else {
             for (int i = 1; i <= esp; i++) {
                 result *= num;
+                }
                 System.out.println(result);
             }
         }
-    public static void funzioneMoltiplicazione (double num1, double num2) {
-
-        double result = num1 * num2;
-        System.out.println(result);
-    }
-          
-    public static void funzionePariDispari (double num1){
-
-        if (num1 % 2 == 0){
-            System.out.println("Numero Pari");
-        } else {
-            System.out.println("Numero Dispari");
+        public static void funzionePariDispari ( double num1){
+            if (num1 % 2 == 0) {
+                System.out.println("Numero " + num1 + " è Pari" );
+            } else {
+                System.out.println("Numero " + num1 + "è Dispari" );
+            }
         }
-    }
-
-
-    public static void funzioneSottrazione(double num1, double num2) {
-        double result;
-        result = num1 - num2;
-        System.out.println(result);
-    }
-    public static void funzioneAddizione (double num1, double num2) {
-
-        double result = num1 + num2;
-        System.out.println(result);
-    }
 }
