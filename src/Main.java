@@ -2,8 +2,8 @@ public class Main {
     public static void main(String[] args) {
     }
 
-    public static void funzioneAddizione (int num1, int num2) {
+    public static void funzioneAddizione (double num1, double num2) {
 
-        int result = num1 + num2;
+        double result = num1 + num2;
         System.out.println(result);
     }
