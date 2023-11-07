@@ -18,34 +18,35 @@ public class Main2Calculator {
                 operatore = scanner.next().charAt(0);
             } else break;
         }
+        String[] numberStrs = inputNumeri.split(",");
+        double[] numbers = new double[numberStrs.length];
+        for(int i = 0;i < numberStrs.length;i++)
+        {
+            numbers[i] = Double.parseDouble(numberStrs[i]);
+        }
+        double risultato = numbers[0];
 
-            String[] numeri = inputNumeri.split(",");
-
-            double risultato = Double.parseDouble(numeri[0]);
-
-            for (int i = 1 ; i < numeri.length; i++) {
-                double numero = Double.parseDouble(numeri[i]);
+            for (int i = 1 ; i < numbers.length; i++) {
 
                 switch (operatore) {
                     case '+':
-                        risultato += numero;
+                        risultato += numbers[i];
                         break;
                     case '-':
-                        risultato -= numero;
+                        risultato -= numbers[i];
                         break;
                     case '*':
-                        risultato   *= numero;
+                        risultato   *= numbers[i];
                         break;
                     case '/':
-                        if (numero != 0) {
-                            risultato /= numero;
+                        if (numbers[i] != 0) {
+                            risultato /= numbers[i];
                         }else {
                             System.out.println("Non si può dividere per 0");
                             return;
                         }
                         break;
                 }
-
             }
         System.out.println("Risultato: " + risultato);
         scanner.close();
