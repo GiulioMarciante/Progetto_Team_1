@@ -4,7 +4,7 @@ public class Main2Calculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Inserisci una lista di numeri separati da ',':");
+        System.out.println("Inserisci una lista di numeri separati da ' ':");
 
         String inputNumeri = scanner.nextLine();
 
@@ -18,7 +18,7 @@ public class Main2Calculator {
                 operatore = scanner.next().charAt(0);
             } else break;
         }
-        String[] numberStrs = inputNumeri.split(",");
+        String[] numberStrs = inputNumeri.split(" ");
         double[] numbers = new double[numberStrs.length];
         for(int i = 0;i < numberStrs.length;i++)
         {

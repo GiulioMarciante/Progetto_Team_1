@@ -1,14 +1,9 @@
 import java.util.Scanner;
-
 public class Main {
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Inserisci un numero o una lista di numeri separati da ',':");
-
-        String inputNumeri = scanner.nextLine();
-
+        System.out.println("Inserisci il primo numero:");
+        double num1 = scanner.nextDouble();
         System.out.println("Inserisci l'operatore ( + , - , * , / , ^, p):");
 
         char operatore = scanner.next().charAt(0);
@@ -19,76 +14,79 @@ public class Main {
                 operatore = scanner.next().charAt(0);
             } else break;
         }
-        //ho rimosso double risultato = 0; dava errore perché nominato alla riga 41.
-        String[] numberStrs = inputNumeri.split(",");
 
-        double[] numbers = new double[numberStrs.length];
+        double num2 = 0;
 
-        for(int i = 0; i < numberStrs.length; i++) {
-
-            numbers[i] = Double.parseDouble(numberStrs[i]);
+        if (operatore != 'p') {
+            System.out.println("Inserisci il secondo numero:");
+            num2 = scanner.nextDouble();
         }
-        double risultato = numbers[0];
 
-        if(numbers.length == 1){
-
-            if (risultato % 2 == 0) {
-                System.out.println("Il numero è Pari"); //il double entrava in conflitto con la stringa in coercizione.
-            } else {
-                System.out.println("Il numero è Dispari"); //stessa cosa.
-            }
-
-        } else if (numbers.length == 2){
-
-            double num1 = numbers[0];
-            double num2 = numbers[1];
-
-            switch (operatore) {
-                case '+':
-                    risultato = num1 + num2;
-                    break;
-                case '-':
-                    risultato = num1 - num2;
-                    break;
-                case '*':
-                    risultato = num1 * num2;
-                    break;
-                case '/':
-                    int quoto = (int) (num1 / num2);
-                    int resto = (int) (num1 % num2);
-                    risultato = quoto;
-                    System.out.println("Il resto della divisione è: " + resto);
-                    break;
-                case '^':
-                    risultato = Math.pow(num1, num2); //scusa ma mi dava problemi senza Math.pow
-                    break;
-                default:
-            }
-        } else {
-            for (int i = 1 ; i < numbers.length; i++) {
-                switch (operatore) {
-                    case '+':
-                        risultato += numbers[i];
-                        break;
-                    case '-':
-                        risultato -= numbers[i];
-                        break;
-                    case '*':
-                        risultato *= numbers[i];
-                        break;
-                    case '/':
-                        if (numbers[i] != 0) {
-                            risultato /= numbers[i];
-                        }else {
-                            System.out.println("Non si può dividere per 0");
-                            return;
-                        }
-                        break;
-                }
-
-            }
-        }
-        System.out.println("Risultato: " + risultato);
         scanner.close();
+
+        switch (operatore) {
+            case '+':
+                funzioneAddizione(num1, num2);
+                break;
+            case '-':
+                funzioneSottrazione(num1, num2);
+                break;
+            case '*':
+                funzioneMoltiplicazione(num1, num2);
+                break;
+            case '/':
+                funzioneDivisione(num1, num2);
+                break;
+            case '^':
+                funzionePotenza(num1, num2);
+                break;
+            case 'p':
+                funzionePariDispari(num1);
+                break;
+            default:
+        }
+    }
+
+    public static void funzioneAddizione(double num1, double num2) {
+
+        double result = num1 + num2;
+        System.out.println(result);
+    }
+
+    public static void funzioneSottrazione(double num1, double num2) {
+        double result;
+        result = num1 - num2;
+        System.out.println(result);
+    }
+
+    public static void funzioneMoltiplicazione(double num1, double num2) {
+        double result = num1 * num2;
+        System.out.println(result);
+    }
+
+    public static void funzioneDivisione(double num1, double num2) {
+        double result = num1 / num2;
+        int rest = (int) (num1 % num2);
+        System.out.println(result + " con il resto di: " + rest);
+    }
+
+    public static void funzionePotenza(double num, double esp) {
+        double result = 1;
+        if (esp == 0) {
+            System.out.println(result);
+        } else {
+            for (int i = 1; i <= esp; i++) {
+                result *= num;
+            }
+            System.out.println(result);
+        }
+    }
+
+    public static void funzionePariDispari(double num1) {
+        if (num1 % 2 == 0) {
+            System.out.println("Numero " + num1 + " è Pari");
+        } else {
+            System.out.println("Numero " + num1 + " è Dispari");
+        }
     }
 }
