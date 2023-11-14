@@ -1,15 +1,15 @@
 import java.util.Scanner;
 
-public class Main {
+public class Main{
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Inserisci un numero o una lista di numeri separati da ',':");
+        System.out.println("Inserisci un numero per sapere se è pari o dispari o una lista di numeri (usare '.' e non ',' per separare i valori decimali):");
 
         String inputNumeri = scanner.nextLine();
 
-        System.out.println("Inserisci l'operatore ( + , - , * , / , ^, p):");
+        System.out.println("Inserisci l'operatore + , - , * , / , ^ (la funzione potenza è disponibile per 2 sole cifre) oppure p per scoprire se il n° è pari o dispari:");
 
         char operatore = scanner.next().charAt(0);
 
@@ -19,8 +19,8 @@ public class Main {
                 operatore = scanner.next().charAt(0);
             } else break;
         }
-        //ho rimosso double risultato = 0; dava errore perché nominato alla riga 41.
-        String[] numberStrs = inputNumeri.split(",");
+
+        String[] numberStrs = inputNumeri.split(" ");
 
         double[] numbers = new double[numberStrs.length];
 
@@ -33,9 +33,9 @@ public class Main {
         if(numbers.length == 1){
 
             if (risultato % 2 == 0) {
-                System.out.println("Il numero è Pari"); //il double entrava in conflitto con la stringa in coercizione.
+                System.out.println("Il numero è pari");
             } else {
-                System.out.println("Il numero è Dispari"); //stessa cosa.
+                System.out.println("Il numero è dispari");
             }
 
         } else if (numbers.length == 2){
@@ -60,7 +60,10 @@ public class Main {
                     System.out.println("Il resto della divisione è: " + resto);
                     break;
                 case '^':
-                    risultato = Math.pow(num1, num2); //scusa ma mi dava problemi senza Math.pow
+                    risultato =1;
+                    for(int i=1; i<=num2 ; i++){
+                        risultato*=num1;
+                    }
                     break;
                 default:
             }
@@ -85,7 +88,6 @@ public class Main {
                         }
                         break;
                 }
-
             }
         }
         System.out.println("Risultato: " + risultato);
